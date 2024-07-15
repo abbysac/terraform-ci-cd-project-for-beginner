@@ -14,13 +14,13 @@ phases:
       - ls -la
       - cd cicd
       #- echo Running install-terraform.sh...
-      - install-terraform # install terraform
-      - configure-named-profile.sh
+      - ./install-terraform.sh # install terraform
+      - ./configure-named-profile.sh
       #- cd cicd # change directory
       #- ./cicd/configure-named-profile.sh # configure named profile
 
   build:
     commands:
-      - echo build phase...
+      #- echo build phase...
      # - configure-named-profile.sh
-     # - ./apply-terraform.sh
+      - ./apply-terraform.sh
