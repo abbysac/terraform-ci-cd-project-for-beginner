@@ -1,17 +1,17 @@
 # configured aws provider with proper credentials
 provider "aws" {
   region  = "us-east-1"
-  profile = "terraform-user"
+
 }
 
 
 # store the terraform state file in s3
 terraform {
   backend "s3" {
-    bucket  = "aosnote-terraform-state-bucket"
-    key     = "build/terraform.tfstate"
+    bucket  = "bit-test-bucket"
+    key     = "cicd/terraform.tfstate"
     region  = "us-east-1"
-    profile = "terraform-user"
+    
   }
 }
 
@@ -20,7 +20,7 @@ terraform {
 resource "aws_default_vpc" "default_vpc" {
 
   tags = {
-    Name = "default vpc"
+    Name = "dev-vpc"
   }
 }
 
@@ -34,14 +34,14 @@ resource "aws_default_subnet" "default_az1" {
   availability_zone = data.aws_availability_zones.available_zones.names[0]
 
   tags = {
-    Name = "default subnet"
+    Name = "RDS-Pvt-subnet-8"
   }
 }
 
 
 # create security group for the ec2 instance
 resource "aws_security_group" "ec2_security_group" {
-  name        = "ec2 security group"
+  name        = "launch-wizard-9"
   description = "allow access on ports 80 and 22"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -97,7 +97,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type          = "t2.micro"
   subnet_id              = aws_default_subnet.default_az1.id
   vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
-  key_name               = "myec2key"
+  key_name               = "dms-instance"
   user_data              = file("install_techmax.sh")
 
   tags = {
