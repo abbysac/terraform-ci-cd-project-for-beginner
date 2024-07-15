@@ -8,16 +8,19 @@ phases:
   pre_build:
     commands:
      # - cd cicd # change directory
-     # - chmod +x ./install-terraform.sh configure-named-profile.sh apply-terraform.sh # make files executable
-     # - ls -la
-     # - ./install-terraform.sh # install terraform
-     # - ./configure-named-profile.sh # configure named profile
-
+<<<<<<< HEAD
       - chmod +x ./install-terraform.sh
       - chmod +x ./configure-named-profile.sh
       - chmod +x ./apply-terraform.sh
       - echo Running install-terraform.sh...
       - ./install-terraform.sh
+=======
+     # - chmod +x ./install-terraform.sh configure-named-profile.sh apply-terraform.sh # make files executable
+     # - ls -la
+     # - ./install-terraform.sh # install terraform
+     # - ./configure-named-profile.sh # configure named profile
+>>>>>>> 0f05635921a703448beab8bc9a3311bdd5d20e9d
+
 
   build:
     commands:
