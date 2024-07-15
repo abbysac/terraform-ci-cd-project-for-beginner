@@ -10,7 +10,7 @@ phases:
       - cd cicd # change directory
       - chmod +x install-terraform.sh configure-named-profile.sh apply-terraform.sh # make files executable
       - ls -la
-      - ./install-terraform.sh # install terraform
+      - install-terraform.sh # install terraform
       - ./configure-named-profile.sh # configure named profile
 
   build:
