@@ -20,5 +20,5 @@ phases:
   build:
     commands:
       - echo Running build phase...
-      - ./configure-named-profile.sh
-      - ./apply-terraform.sh
+      - configure-named-profile.sh
+      - apply-terraform.sh
