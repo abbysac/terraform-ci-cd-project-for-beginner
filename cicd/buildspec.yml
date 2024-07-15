@@ -17,4 +17,4 @@ phases:
 
   build:
     commands:
-      - * #./cicd/apply-terraform.sh
+      - ./* #apply-terraform.sh
