@@ -12,7 +12,7 @@ phases:
       - chmod +x ./cicd/configure-named-profile.sh 
       - chmod +x ./cicd/apply-terraform.sh # make files executable
       - ls -la
-      - echo Running install-terraform.sh...
+      #- echo Running install-terraform.sh...
       - install-terraform.sh # install terraform
       - cd cicd # change directory
       #- ./cicd/configure-named-profile.sh # configure named profile
